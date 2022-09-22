@@ -6,9 +6,6 @@ import settings
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
 
-'''PROXY = {'proxy_url': 'socks5h://t3.learn.python.ru:1080',
-    'urllib3_proxy_kwargs': {'username': 'learn', 'password': 'python'}}'''
-
 def greet_user(update, context):
     print('Вызван/start')
    
@@ -20,7 +17,7 @@ def talk_to_me(update, context):
     update.message.reply_text(text)
 
 def main():
-    mybot = Updater(settings.API_KEY, use_context=True) #при использовании прокси добавить reqwest_kwargs=PROXY
+    mybot = Updater(settings.API_KEY, use_context=True)
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler('start', greet_user))
